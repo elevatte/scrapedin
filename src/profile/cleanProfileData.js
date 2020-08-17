@@ -12,48 +12,58 @@ module.exports = (profile) => {
 
   profile.positions.forEach((position) => {
     if(position.title){
-        position.title = position.title.replace('Company Name\n', '')
+        position.title = position.title.replace('Company Name\n', '').replace('Nome da empresa\n', '')
     }
     if(position.description) {
-      position.description = position.description.replace('See more', '');
-      position.description = position.description.replace('see more', '');
-	    position.description = position.description.replace('See less', '');
+      position.description = position.description.replace('See more', '').replace('visualizar mais', '');
+	    position.description = position.description.replace('See less', '').replace('visualizar menos', '');
+    }
+
+    if(position.dateRange) {
+      position.dateStart = position.dateRange.split(' - ')[0]
+      position.dateEnd = position.dateRange.split(' - ')[1]
+      delete position.dateRange
     }
     if(position.roles) {
       position.roles.forEach((role) => {
         if(role.title) {
-          role.title = role.title.replace('Title\n', '')
+          role.title = role.title.replace('Title\n', '').replace('Cargo\n', '')
         }
         if(role.description) {
-          role.description = role.description.replace('See more', '')
-          role.description = role.description.replace('see more', '')
+          role.description = role.description.replace('See more', '').replace('visualizar mais', '')
+          role.description = role.description.replace('see less', '').replace('visualizar menos', '')
+        }
+        if(role.dateRange) {
+          role.dateStart = role.dateRange.split(' - ')[0]
+          role.dateEnd = role.dateRange.split(' - ')[1]
+          delete role.dateRange
         }
       })
     }
   })
 
-  if(profile.recommendations.receivedCount) {
+  if(profile.recommendations && profile.recommendations.receivedCount) {
     profile.recommendations.receivedCount = profile.recommendations.receivedCount.replace(/[^\d]/g, '')
   }
 
-  if(profile.recommendations.givenCount) {
+  if(profile.recommendations && profile.recommendations.givenCount) {
     profile.recommendations.givenCount = profile.recommendations.givenCount.replace(/[^\d]/g, '')
   }
 
-  if(profile.recommendations.received) {
+  if(profile.recommendations && profile.recommendations.received) {
     profile.recommendations.received.forEach((recommendation) => {
       if(recommendation.summary){
-        recommendation.summary = recommendation.summary.replace('See more', '')
-        recommendation.summary = recommendation.summary.replace('See less', '')
+        recommendation.summary = recommendation.summary.replace('See more', '').replace('... Visualizar mais', '')
+        recommendation.summary = recommendation.summary.replace('See less', '').replace('visualizar menos', '')
       }
     })
   }
 
-  if(profile.recommendations.given) {
+  if(profile.recommendations && profile.recommendations.given) {
     profile.recommendations.given.forEach((recommendation) => {
       if(recommendation.summary){
-        recommendation.summary = recommendation.summary.replace('See more', '')
-        recommendation.summary = recommendation.summary.replace('See less', '')
+        recommendation.summary = recommendation.summary.replace('See more', '').replace('... Visualizar mais', '')
+        recommendation.summary = recommendation.summary.replace('See less', '').replace('visualizar menos', '')
       }
     })
   }
@@ -64,10 +74,10 @@ module.exports = (profile) => {
         institution
       }
       if(name) {
-        coursesObj.name = name.replace('Course name\n', '')
+        coursesObj.name = name.replace('Course name\n', '').replace('Nome do Curso\n', '')
       }
       if(date) {
-        coursesObj.date = date.replace('Course number\n', '').replace('Issued ', '').replace('No Expiration Date', '')
+        coursesObj.date = date.replace('Course number\n', '').replace('Issued ', '').replace('No Expiration Date', '').replace('Emitido em ', '').replace('Nenhuma data de expiração', '')
       }
       return coursesObj
     }
@@ -76,7 +86,7 @@ module.exports = (profile) => {
 
   if(profile.languages){
     profile.languages = profile.languages.map(({ name, proficiency }) => ({
-      name: name ? name.replace('Language name\n', '') : undefined,
+      name: name ? name.replace('Language name\n', '').replace('Idioma\n', '') : undefined,
       proficiency,
     }));
   }
@@ -84,12 +94,16 @@ module.exports = (profile) => {
   if(profile.projects){
     profile.projects = profile.projects.map(
       ({ name, date, description, link }) => ({
-        name: name ? name.replace('Project name\n', '') : undefined,
+        name: name ? name.replace('Project name\n', '').replace('Nome do projeto\n', '') : undefined,
         date,
-        description: description ? description.replace('Project description\n', '') : undefined,
+        description: description ? description.replace('Project description\n', '').replace('Descrição do projeto\n', '') : undefined,
         link,
       }),
     );
+  }
+
+  if(profile.skills) {
+    profile.skills = profile.skills.map(({ title, count }) => ({ title, count: parseInt(count, 10) }))
   }
   
   return profile

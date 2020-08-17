@@ -41,8 +41,8 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const positions = await scrapSection(page, template.positions)
   const educations = await scrapSection(page, template.educations)
   const [recommendationsCount] = await scrapSection(page, template.recommendationsCount)
-  const recommendationsReceived = await scrapSection(page, template.recommendationsReceived)
-  const recommendationsGiven = await scrapSection(page, template.recommendationsGiven)
+  // const recommendationsReceived = await scrapSection(page, template.recommendationsReceived)
+  // const recommendationsGiven = await scrapSection(page, template.recommendationsGiven)
   const skills = await scrapSection(page, template.skills)
   const accomplishments = await scrapSection(page, template.accomplishments)
   const courses = await scrapSection(page, template.courses)
@@ -61,12 +61,12 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     positions,
     educations,
     skills,
-    recommendations: {
-      givenCount: recommendationsCount ? recommendationsCount.given : "0",
-      receivedCount: recommendationsCount ? recommendationsCount.received : "0",
-      given: recommendationsReceived,
-      received: recommendationsGiven
-    },
+    // recommendations: {
+    //   givenCount: recommendationsCount ? recommendationsCount.given : "0",
+    //   receivedCount: recommendationsCount ? recommendationsCount.received : "0",
+    //   given: recommendationsReceived,
+    //   received: recommendationsGiven
+    // },
     accomplishments,
     courses,
     languages,

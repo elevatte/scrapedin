@@ -35,16 +35,16 @@ const template = {
       companyName: '.pv-entity__secondary-title',
       location: '.pv-entity__location span:last-child',
       description: '.pv-entity__description',
-      date1: '.pv-entity__date-range span:last-child',
-      date2: '.pv-entity__bullet-item-v2',
+      dateRange: '.pv-entity__date-range span:last-child',
+      duration: '.pv-entity__bullet-item-v2',
       roles: {
         selector: 'li',
         hasChildrenFields: true,
         fields: {
           title: 'h3',
           description: '.pv-entity__description',
-          date1: '.pv-entity__date-range span:last-child',
-          date2: '.pv-entity__bullet-item-v2',
+          dateRange: '.pv-entity__date-range span:last-child',
+          duration: '.pv-entity__bullet-item-v2',
           location: '.pv-entity__location span:last-child'
         }
       }
@@ -60,8 +60,8 @@ const template = {
         attribute: 'href'
       },
 	    fieldOfStudy: 'p.pv-entity__fos span:nth-child(2)',
-      date1: '.pv-entity__dates time:nth-child(1)',
-      date2: '.pv-entity__dates time:nth-child(2)',
+      yearStart: '.pv-entity__dates time:nth-child(1)',
+      yearEnd: '.pv-entity__dates time:nth-child(2)',
       description: '.pv-entity__description'
     }
   },
@@ -177,7 +177,7 @@ const template = {
     selector: '.pv-accomplishments-section',
     fields: {
       name: '.pv-accomplishment-entity__title',
-      date: '.pv-accomplishment-entity__date',
+      dateRange: '.pv-accomplishment-entity__date',
       description: '.pv-accomplishment-entity__description',
       link: {
         selector: '.pv-accomplishment-entity__external-source',
