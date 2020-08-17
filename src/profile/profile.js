@@ -45,7 +45,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const recommendationsGiven = await scrapSection(page, template.recommendationsGiven)
   const skills = await scrapSection(page, template.skills)
   const accomplishments = await scrapSection(page, template.accomplishments)
-  const courses = await scrapAccomplishmentPanel(page, 'courses')
+  const courses = await scrapSection(page, template.courses)
   const languages = await scrapAccomplishmentPanel(page, 'languages')
   const projects = await scrapAccomplishmentPanel(page, 'projects')
   const volunteerExperience = await scrapSection(page, template.volunteerExperience)

@@ -159,10 +159,11 @@ const template = {
     }
   },
   courses: {
-    selector: '.pv-accomplishments-section',
+    selector: '#certifications-section li',
     fields: {
-      name: '.pv-accomplishment-entity__title',
-      year: '.pv-accomplishment-entity__course-number'
+      name: '.pv-certifications__summary-info h3',
+      institution: '.pv-certifications__summary-info p span:nth-child(2)',
+      date: '.pv-certifications__summary-info p:nth-child(3) span:nth-child(2)'
     }
   },
   languages: {

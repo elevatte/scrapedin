@@ -59,13 +59,15 @@ module.exports = (profile) => {
   }
 
   if(profile.courses){
-    profile.courses = profile.courses.map(({ name, year }) => {
-      const coursesObj = {}
+    profile.courses = profile.courses.map(({ name, date, institution }) => {
+      const coursesObj = {
+        institution
+      }
       if(name) {
         coursesObj.name = name.replace('Course name\n', '')
       }
-      if(year) {
-        coursesObj.year = year.replace('Course number\n', '')
+      if(date) {
+        coursesObj.date = date.replace('Course number\n', '').replace('Issued ', '').replace('No Expiration Date', '')
       }
       return coursesObj
     }
