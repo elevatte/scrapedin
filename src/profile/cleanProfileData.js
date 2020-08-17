@@ -22,8 +22,9 @@ module.exports = (profile) => {
     }
 
     if(position.dateRange) {
-      position.dateStart = position.dateRange.split(dateBreakPoint)[0]
-      position.dateEnd = position.dateRange.split(dateBreakPoint)[1]
+      const [ dateStart, dateEnd ] = position.dateRange.split(dateBreakPoint)
+      position.dateStart = dateStart
+      position.dateEnd = dateEnd || dateStart
       delete position.dateRange
     }
     if(position.roles) {
@@ -36,8 +37,9 @@ module.exports = (profile) => {
           role.description = role.description.replace('see less', '').replace('visualizar menos', '')
         }
         if(role.dateRange) {
-          role.dateStart = role.dateRange.split(dateBreakPoint)[0]
-          role.dateEnd = role.dateRange.split(dateBreakPoint)[1]
+          const [ dateStart, dateEnd ] = role.dateRange.split(dateBreakPoint)
+          role.dateStart = dateStart
+          role.dateEnd = dateEnd || dateStart
           delete role.dateRange
         }
       })
@@ -112,12 +114,17 @@ module.exports = (profile) => {
     profile.volunteerExperience = profile.volunteerExperience.map(volunteerExperience => {
       const volunteerExperienceObj = { ...volunteerExperience }
       if(volunteerExperienceObj.dateRange) {
-        volunteerExperienceObj.dateStart = volunteerExperienceObj.dateRange.split(dateBreakPoint)[0]
-        volunteerExperienceObj.dateEnd = volunteerExperienceObj.dateRange.split(dateBreakPoint)[1]
+        const [ dateStart, dateEnd ] = volunteerExperienceObj.dateRange.split(dateBreakPoint)
+        volunteerExperienceObj.dateStart = dateStart
+        volunteerExperienceObj.dateEnd = dateEnd || dateStart
         delete volunteerExperienceObj.dateRange
       }
       return volunteerExperienceObj
     })
+  }
+
+  if(profile.accomplishments) {
+    profile.accomplishments = profile.accomplishments.map(accomplishment => ({ ...accomplishment, count: parseInt(accomplishment.count, 10) }))
   }
   
   return profile
