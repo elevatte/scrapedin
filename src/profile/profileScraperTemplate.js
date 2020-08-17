@@ -154,8 +154,8 @@ const template = {
       experience: 'span[class=pv-entity__secondary-title]',
       location: '.pv-entity__location span:nth-child(2)',
       description: '.pv-volunteer-causes',
-      date1: '.pv-entity__date-range span:nth-child(2)',
-      date2: '.pv-entity__bullet-item'
+      dateRange: '.pv-entity__date-range span:nth-child(2)',
+      duration: '.pv-entity__bullet-item'
     }
   },
   courses: {

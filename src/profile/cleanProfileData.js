@@ -1,6 +1,8 @@
 const logger = require('../logger')(__filename)
 const pkg = require('../package')
 
+const dateBreakPoint = ' – '
+
 module.exports = (profile) => {
   if(!profile.profile.name) {
     const messageError = `LinkedIn website changed and ${pkg.name} ${pkg.version} can't read basic data. Please report this issue at ${pkg.bugs.url}`
@@ -20,8 +22,8 @@ module.exports = (profile) => {
     }
 
     if(position.dateRange) {
-      position.dateStart = position.dateRange.split(' - ')[0]
-      position.dateEnd = position.dateRange.split(' - ')[1]
+      position.dateStart = position.dateRange.split(dateBreakPoint)[0]
+      position.dateEnd = position.dateRange.split(dateBreakPoint)[1]
       delete position.dateRange
     }
     if(position.roles) {
@@ -34,8 +36,8 @@ module.exports = (profile) => {
           role.description = role.description.replace('see less', '').replace('visualizar menos', '')
         }
         if(role.dateRange) {
-          role.dateStart = role.dateRange.split(' - ')[0]
-          role.dateEnd = role.dateRange.split(' - ')[1]
+          role.dateStart = role.dateRange.split(dateBreakPoint)[0]
+          role.dateEnd = role.dateRange.split(dateBreakPoint)[1]
           delete role.dateRange
         }
       })
@@ -103,7 +105,19 @@ module.exports = (profile) => {
   }
 
   if(profile.skills) {
-    profile.skills = profile.skills.map(({ title, count }) => ({ title, count: parseInt(count, 10) }))
+    profile.skills = profile.skills.map(({ title, count }) => ({ title, count: count ? parseInt(count, 10) : 0  }))
+  }
+
+  if(profile.volunteerExperience) {
+    profile.volunteerExperience = profile.volunteerExperience.map(volunteerExperience => {
+      const volunteerExperienceObj = { ...volunteerExperience }
+      if(volunteerExperienceObj.dateRange) {
+        volunteerExperienceObj.dateStart = volunteerExperienceObj.dateRange.split(dateBreakPoint)[0]
+        volunteerExperienceObj.dateEnd = volunteerExperienceObj.dateRange.split(dateBreakPoint)[1]
+        delete volunteerExperienceObj.dateRange
+      }
+      return volunteerExperienceObj
+    })
   }
   
   return profile
