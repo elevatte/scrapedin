@@ -8,7 +8,7 @@ const template = {
       headline: `h2`,
       location: `.pv-top-card--list:last-child li:first-child`,
       connections: `.pv-top-card--list:last-child li:nth-child(2)`,
-      imageurl: {
+      image_url: {
 		    selector: `img.pv-top-card__photo`,
         attribute: 'src'
       }
@@ -32,10 +32,10 @@ const template = {
         selector: 'a',
         attribute: 'href'
       },
-      companyName: '.pv-entity__secondary-title',
+      company_name: '.pv-entity__secondary-title',
       location: '.pv-entity__location span:last-child',
       description: '.pv-entity__description',
-      dateRange: '.pv-entity__date-range span:last-child',
+      date_range: '.pv-entity__date-range span:last-child',
       duration: '.pv-entity__bullet-item-v2',
       roles: {
         selector: 'li',
@@ -43,7 +43,7 @@ const template = {
         fields: {
           title: 'h3',
           description: '.pv-entity__description',
-          dateRange: '.pv-entity__date-range span:last-child',
+          date_range: '.pv-entity__date-range span:last-child',
           duration: '.pv-entity__bullet-item-v2',
           location: '.pv-entity__location span:last-child'
         }
@@ -59,9 +59,9 @@ const template = {
         selector: 'a',
         attribute: 'href'
       },
-	    fieldOfStudy: 'p.pv-entity__fos span:nth-child(2)',
-      yearStart: '.pv-entity__dates time:nth-child(1)',
-      yearEnd: '.pv-entity__dates time:nth-child(2)',
+	    field_of_study: 'p.pv-entity__fos span:nth-child(2)',
+      year_start: '.pv-entity__dates time:nth-child(1)',
+      year_end: '.pv-entity__dates time:nth-child(2)',
       description: '.pv-entity__description'
     }
   },
@@ -72,14 +72,14 @@ const template = {
       count: '.pv-skill-category-entity__endorsement-count'
     }
   },
-  recommendationsCount: {
+  recommendations_count: {
     selector: '.recommendations-inlining',
     fields: {
       received: '.artdeco-tab:nth-child(1)',
       given: '.artdeco-tab:nth-child(2)'
     }
   },
-  recommendationsReceived: {
+  recommendations_received: {
     selector: '.recommendations-inlining',
     fields: {
       user: {
@@ -87,19 +87,19 @@ const template = {
         attribute: 'href'
       },
       text: 'blockquote.pv-recommendation-entity__text',
-      profileImage: {
+      profile_image: {
         selector: 'a img',
         attribute: 'src'
       },
       name: {
         selector: 'a h3'
       },
-      userDescription: {
+      user_description: {
         selector: '.pv-recommendation-entity__headline'
       }
     }
   },
-  recommendationsGiven: {
+  recommendations_given: {
     selector: '.artdeco-tabpanel li.pv-recommendation-entity',
     fields: {
       user: {
@@ -107,14 +107,14 @@ const template = {
         attribute: 'href'
       },
       text: 'blockquote.pv-recommendation-entity__text',
-      profileImage: {
+      profile_image: {
         selector: 'a img',
         attribute: 'src'
       },
       name: {
         selector: 'a h3'
       },
-      userDescription: {
+      user_description: {
         selector: '.pv-recommendation-entity__headline'
       }
     }
@@ -130,7 +130,7 @@ const template = {
       }
     }
   },
-  peopleAlsoViewed: {
+  people_also_viewed: {
     selector: 'li.pv-browsemap-section__member-container',
     fields: {
       user: {
@@ -138,7 +138,7 @@ const template = {
         attribute: 'href'
       },
       text: 'p',
-      profileImage: {
+      profile_image: {
         selector: 'a img',
         attribute: 'src'
       },
@@ -147,14 +147,14 @@ const template = {
       }
     }
   },
-  volunteerExperience: {
+  volunteer_experiences: {
     selector: 'section.volunteering-section li',
     fields: {
       title: 'h3',
       experience: 'span[class=pv-entity__secondary-title]',
       location: '.pv-entity__location span:nth-child(2)',
       description: '.pv-volunteer-causes',
-      dateRange: '.pv-entity__date-range span:nth-child(2)',
+      date_range: '.pv-entity__date-range span:nth-child(2)',
       duration: '.pv-entity__bullet-item'
     }
   },
@@ -177,7 +177,7 @@ const template = {
     selector: '.pv-accomplishments-section',
     fields: {
       name: '.pv-accomplishment-entity__title',
-      dateRange: '.pv-accomplishment-entity__date',
+      date_range: '.pv-accomplishment-entity__date',
       description: '.pv-accomplishment-entity__description',
       link: {
         selector: '.pv-accomplishment-entity__external-source',

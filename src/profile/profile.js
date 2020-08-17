@@ -40,16 +40,16 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const [about] = await scrapSection(page, template.about)
   const positions = await scrapSection(page, template.positions)
   const educations = await scrapSection(page, template.educations)
-  const [recommendationsCount] = await scrapSection(page, template.recommendationsCount)
-  const recommendationsReceived = await scrapSection(page, template.recommendationsReceived)
-  const recommendationsGiven = await scrapSection(page, template.recommendationsGiven)
+  const [recommendationsCount] = await scrapSection(page, template.recommendations_count)
+  const recommendationsReceived = await scrapSection(page, template.recommendations_received)
+  const recommendationsGiven = await scrapSection(page, template.recommendations_given)
   const skills = await scrapSection(page, template.skills)
   const accomplishments = await scrapSection(page, template.accomplishments)
   const courses = await scrapSection(page, template.courses)
   const languages = await scrapAccomplishmentPanel(page, 'languages')
   const projects = await scrapAccomplishmentPanel(page, 'projects')
-  const volunteerExperience = await scrapSection(page, template.volunteerExperience)
-  const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
+  const volunteerExperiences = await scrapSection(page, template.volunteer_experiences)
+  const peopleAlsoViewed = await scrapSection(page, template.people_also_viewed)
   const contact = hasToGetContactInfo ? await contactInfo(page) : []
 
   await page.close()
@@ -72,7 +72,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     languages,
     projects,
     peopleAlsoViewed,
-    volunteerExperience,
+    volunteerExperiences,
     contact
   }
 
