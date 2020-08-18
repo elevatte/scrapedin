@@ -1,4 +1,4 @@
-![](https://github.com/@elevatte/scrapedin/scrapedin/raw/master/logo.png)
+![](https://github.com/elevatte/scrapedin/raw/master/logo.png)
 ----
 Scraper for LinkedIn full profile data. Unlike others scrapers, it's working in 2020 with their new website.
 
@@ -15,10 +15,10 @@ const profile = await profileScraper('https://www.linkedin.com/in/some-profile/'
 
 ### Start Guide:
 
-- [Basic Tutorial](https://github.com/@elevatte/scrapedin/scrapedin/wiki/Basic-Tutorial)
-- [Using Cookies to Login](https://github.com/@elevatte/scrapedin/scrapedin/wiki/Using-Cookies-To-Login)
-- [Tips](https://github.com/@elevatte/scrapedin/scrapedin/wiki/Tips)
-- [Documentation](https://github.com/@elevatte/scrapedin/scrapedin/wiki/Documentation)
+- [Basic Tutorial](https://github.com/elevatte/scrapedin/scrapedin/wiki/Basic-Tutorial)
+- [Using Cookies to Login](https://github.com/elevatte/scrapedin/scrapedin/wiki/Using-Cookies-To-Login)
+- [Tips](https://github.com/elevatte/scrapedin/scrapedin/wiki/Tips)
+- [Documentation](https://github.com/elevatte/scrapedin/scrapedin/wiki/Documentation)
 
 
 ### Contribution
