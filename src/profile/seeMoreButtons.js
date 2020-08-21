@@ -43,7 +43,6 @@ const clickAll = async (page, buttonSelectors = seeMoreButtons, delay = 250) => 
         const innerTextEl = await button.getProperty('innerText')
         const innerText = innerTextEl._remoteObject.value
         const shouldClickAgain =  buttonSelector.textMatch(innerText) 
-        console.log({ id: buttonSelector.id, innerText, shouldClickAgain })
         if (shouldClickAgain) {
           await button
           .click()
