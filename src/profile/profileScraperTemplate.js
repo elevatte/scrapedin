@@ -24,13 +24,9 @@ const template = {
     selector: '#experience-section li:not(.pv-entity__position-group-role-item)',
     fields: {
       title: 'h3',
-      link: {
+      copany_page: {
         selector: 'a',
         attribute: 'href',
-      },
-      url: {
-        selector: 'a',
-        attribute: 'href'
       },
       company_name: '.pv-entity__secondary-title',
       location: '.pv-entity__location span:last-child',
@@ -59,7 +55,7 @@ const template = {
         selector: 'a',
         attribute: 'href'
       },
-	    field_of_study: 'p.pv-entity__fos span:nth-child(2)',
+	    context: 'p.pv-entity__fos span:nth-child(2)',
       year_start: '.pv-entity__dates time:nth-child(1)',
       year_end: '.pv-entity__dates time:nth-child(2)',
       description: '.pv-entity__description'
@@ -69,7 +65,7 @@ const template = {
     selector: '.pv-skill-category-entity__skill-wrapper',
     fields: {
       title: '.pv-skill-category-entity__name-text',
-      count: '.pv-skill-category-entity__endorsement-count'
+      endorsement: '.pv-skill-category-entity__endorsement-count'
     }
   },
   recommendations_count: {
@@ -153,7 +149,7 @@ const template = {
       title: 'h3',
       experience: 'span[class=pv-entity__secondary-title]',
       location: '.pv-entity__location span:nth-child(2)',
-      description: '.pv-volunteer-causes',
+      context: '.pv-volunteer-causes',
       date_range: '.pv-entity__date-range span:nth-child(2)',
       duration: '.pv-entity__bullet-item'
     }
@@ -178,7 +174,7 @@ const template = {
     fields: {
       name: '.pv-accomplishment-entity__title',
       date_range: '.pv-accomplishment-entity__date',
-      description: '.pv-accomplishment-entity__description',
+      context: '.pv-accomplishment-entity__description',
       link: {
         selector: '.pv-accomplishment-entity__external-source',
         attribute: 'href'
