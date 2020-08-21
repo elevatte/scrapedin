@@ -1,24 +1,10 @@
 const logger = require('../logger')(__filename)
 const scrapSection = require('../scrapSection')
+const profileTemplate = require('./profileScraperTemplate')
 
 const SEE_MORE_SELECTOR = 'a[data-control-name=contact_see_more]'
-const CLOSE_MODAL_SELECTOR = '.artdeco-modal__dismiss';
+const CLOSE_MODAL_SELECTOR = '.artdeco-modal__dismiss'
 
-const template = {
-  selector: '.pv-contact-info__contact-type',
-  fields: {
-    type: 'header',
-    values: {
-      selector: '.pv-contact-info__ci-container',
-      isMultipleFields: true
-    },
-    links: {
-      selector: 'a',
-      attribute: 'href',
-      isMultipleFields: true
-    }
-  }
-} 
 const getContactInfo = async(page) => {
   await page.waitFor(SEE_MORE_SELECTOR, { timeout: 2000 })
     .catch(() => {
@@ -35,7 +21,7 @@ const getContactInfo = async(page) => {
           logger.warn('contact info was not found')
         })
     
-    const contactInfo = await scrapSection(page, template)
+    const contactInfo = await scrapSection(page, profileTemplate.contacts)
     const closeButton = await page.$(CLOSE_MODAL_SELECTOR)
     if(closeButton)
       await closeButton.click()

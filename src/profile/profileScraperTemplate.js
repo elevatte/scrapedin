@@ -1,6 +1,19 @@
-const profileSelector = '.core-rail > *:first-child section >'
-
 const template = {
+  contacts: {
+    selector: '.pv-contact-info__contact-type',
+    fields: {
+      type: 'header',
+      values: {
+        selector: '.pv-contact-info__ci-container',
+        isMultipleFields: true
+      },
+      links: {
+        selector: 'a',
+        attribute: 'href',
+        isMultipleFields: true
+      }
+    }
+  },
   profile: {
     selector: '.pv-top-card',
     fields: {
