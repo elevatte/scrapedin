@@ -9,6 +9,7 @@
   ],
   "main": "src/scrapedin.js",
   "scripts": {
+    "debug": "node --inspect debug.js",
     "test": "mocha src/**.test.js",
     "lint": "standard --fix 'src/*.js'",
     "coverage": "nyc npm test",
