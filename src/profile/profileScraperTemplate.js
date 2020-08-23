@@ -24,7 +24,7 @@ const template = {
     selector: '#experience-section li:not(.pv-entity__position-group-role-item)',
     fields: {
       title: 'h3',
-      copany_page: {
+      company_page: {
         selector: 'a',
         attribute: 'href',
       },
