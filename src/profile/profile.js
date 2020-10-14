@@ -6,6 +6,7 @@ const seeMoreButtons = require('./seeMoreButtons')
 const contactInfo = require('./contactInfo')
 const template = require('./profileScraperTemplate')
 const cleanProfileData = require('./cleanProfileData')
+const wait = require('../wait')
 
 const logger = require('../logger')(__filename)
 
@@ -24,17 +25,12 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   logger.info('scrolling page to the bottom')
   await scrollToPageBottom(page)
   
-  if(waitTimeToScrapMs) {
+  if (waitTimeToScrapMs) {
     logger.info(`applying 1st delay`)
-    await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
+    await wait(180)
   }
 
   await seeMoreButtons.clickAll(page)
-
-  if(waitTimeToScrapMs) {
-    logger.info(`applying 2nd (and last) delay`)
-    await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
-  }
 
   // TODO: algumas das sessões abaixo estão comentadas pois não serão utilizadas no mvp
   const [profile] = await scrapSection(page, template.profile)
