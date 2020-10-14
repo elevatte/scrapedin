@@ -1,6 +1,4 @@
-test.js
 cookies.json
-output.js
 
 # Logs
 logs
@@ -63,6 +61,3 @@ typings/
 
 # next.js build output
 .next
-
-# Package lock was removed from the repo as of b0dad2
-package-lock.json

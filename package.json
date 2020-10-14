@@ -1,6 +1,6 @@
 {
   "name": "@elevatte/scrapedin",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "linkedin scraper for 2020 website",
   "keywords": [
     "linkedin",
@@ -9,6 +9,7 @@
   ],
   "main": "src/scrapedin.js",
   "scripts": {
+    "debug": "node --inspect debug.js",
     "test": "mocha src/**.test.js",
     "lint": "standard --fix 'src/*.js'",
     "coverage": "nyc npm test",
